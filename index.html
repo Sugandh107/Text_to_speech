@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    
+        background-color: rgb(237, 232, 238);
+        background-size: cover;
+        height: 100vh;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    div{
+        height: 50vh;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+   
+    button{
+        border-radius: 5px;
+        padding: 5px 15px;
+        background-color: aqua;
+        border: none;
+        transition: all;
+
+    }
+    button:hover{
+        background-color: rgb(143, 29, 237);
+        color: white;
+    }
+    textarea{
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 4px 4px 3px black;
+    }
+    h1{
+        padding: 5px;
+        background-color: aquamarine;
+        border-radius: 15px;
+        box-shadow: 4px 4px 2px black;
+
+    }
+    @media (max-width:600px){
+        h1{
+            text-wrap: nowrap;
+            font-size: 1.3em;
+            border-radius: 7px;
+        }
+        textarea{
+            height: 150px;
+            width: 250px;
+        }
+    }
+    
+</style>
+<body>
+    
+    <div>
+        <h1>Type Anything You want To Speak</h1>
+        <textarea name="text" id="" cols="45" rows="40" contenteditable="none"></textarea>
+        <button>Speak</button>
+    </div>
+    <script>
+
+        var button=document.querySelector("button")
+        text =document.querySelector("textarea")
+        button.addEventListener("click",()=>{
+            let utterance=new SpeechSynthesisUtterance(text.value);
+            speechSynthesis.speak(utterance);
+        });
+    </script>
+</body>
+</html>
